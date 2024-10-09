@@ -28,7 +28,9 @@
    - Dodanie timeoutów, ponownych prób, logowania błędów
 
 **Łącznie dla etapu 2**: 4-7 godzin
-
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #### Etap 3: Przetwarzanie i przechowywanie danych
 7. **Przetwarzanie danych**: 2-3 godziny  
    - Użycie `pandas` do manipulacji danymi (konwersja do DataFrame, formatowanie)

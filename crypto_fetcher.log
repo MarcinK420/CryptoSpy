@@ -1,0 +1,30 @@
+2024-10-09 17:14:38,012 - ERROR - Connection error occurred: Connection error
+2024-10-09 17:14:38,022 - ERROR - HTTP error occurred: HTTP error
+2024-10-09 17:14:38,023 - ERROR - JSON decode error: JSON decode error
+2024-10-09 17:14:38,023 - ERROR - An error occurred: Request exception
+2024-10-09 17:14:38,024 - ERROR - Timeout error occurred: Timeout error
+2024-10-09 17:16:57,711 - ERROR - Connection error occurred: Connection error
+2024-10-09 17:16:57,713 - ERROR - HTTP error occurred: HTTP error
+2024-10-09 17:16:57,714 - ERROR - JSON decode error: JSON decode error
+2024-10-09 17:16:57,715 - ERROR - An error occurred: Request exception
+2024-10-09 17:16:57,721 - ERROR - Timeout error occurred: Timeout error
+2024-10-09 17:18:28,647 - ERROR - Connection error occurred: Connection error
+2024-10-09 17:18:28,650 - ERROR - HTTP error occurred: HTTP error
+2024-10-09 17:18:28,652 - ERROR - JSON decode error: JSON decode error
+2024-10-09 17:18:28,652 - ERROR - An error occurred: Request exception
+2024-10-09 17:18:28,654 - ERROR - Timeout error occurred: Timeout error
+2024-10-09 17:26:19,007 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-09 17:26:19,007 - INFO - Attempting to fetch crypto prices
+2024-10-09 17:26:19,229 - INFO - Successfully fetched cryptocurrency prices
+2024-10-09 17:28:56,146 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-09 17:28:56,146 - INFO - Attempting to fetch crypto prices
+2024-10-09 17:28:56,190 - INFO - Successfully fetched cryptocurrency prices
+2024-10-09 17:31:32,617 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-09 17:31:32,617 - INFO - Attempting to fetch crypto prices
+2024-10-09 17:31:32,842 - INFO - Successfully fetched cryptocurrency prices
+2024-10-09 17:32:15,573 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-09 17:32:15,573 - INFO - Attempting to fetch crypto prices
+2024-10-09 17:32:15,643 - INFO - Successfully fetched cryptocurrency prices
+2024-10-09 17:32:15,646 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-09 17:32:15,646 - INFO - Attempting to fetch crypto prices
+2024-10-09 17:32:15,646 - INFO - Successfully fetched cryptocurrency prices

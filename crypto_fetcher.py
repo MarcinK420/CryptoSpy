@@ -2,6 +2,7 @@ import requests
 import json
 import logging
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type, before_log, after_log
+import pandas as pd
 
 # Configure logging
 logger = logging.getLogger('crypto_fetcher')
@@ -16,6 +17,9 @@ This module provides functionality to fetch cryptocurrency prices from the CoinG
 
 Functions:
     get_crypto_prices: Fetches the current prices of Bitcoin, Ethereum, and Ripple in USD and PLN.
+    process_data: Converts the fetched data into a pandas DataFrame.
+    add_percent_change: Adds percentage change columns to the DataFrame.
+    format_data: Rounds the data in the DataFrame to 2 decimal places.
 """
 
 @retry(
@@ -61,8 +65,58 @@ def get_crypto_prices():
         logger.error(f"JSON decode error: {json_err}")
         return {"error": "JSON decode error", "message": str(json_err)}
 
+def process_data(data):
+    """
+    Converts the fetched cryptocurrency data into a pandas DataFrame.
+
+    Args:
+        data (dict): A dictionary containing the prices of the cryptocurrencies.
+
+    Returns:
+        pandas.DataFrame: A DataFrame with the cryptocurrency prices.
+    """
+    df = pd.DataFrame(data).T
+    df.columns = ['usd', 'pln']
+    return df
+
+def add_percent_change(df):
+    """
+    Adds percentage change columns to the DataFrame for USD and PLN prices.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame with the cryptocurrency prices.
+
+    Returns:
+        pandas.DataFrame: The DataFrame with added percentage change columns.
+    """
+    df['usd_change'] = df['usd'].pct_change()*100
+    df['pln_change'] = df['pln'].pct_change()*100
+    df = df.fillna(0)
+    return df
+
+def format_data(df):
+    """
+    Rounds the data in the DataFrame to 2 decimal places.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame with the cryptocurrency prices and percentage changes.
+
+    Returns:
+        pandas.DataFrame: The DataFrame with rounded values.
+    """
+    df['usd'] = df['usd'].round(2)
+    df['pln'] = df['pln'].round(2)
+    df['usd_change'] = df['usd_change'].round(2)
+    df['pln_change'] = df['pln_change'].round(2)
+    return df
+
+# Fetch, process, and save cryptocurrency prices
 data = get_crypto_prices()
 if data and "error" not in data:
-    print(json.dumps(data, indent=4))
+    df = process_data(data)
+    df = add_percent_change(df)
+    df = format_data(df)
+    df.to_csv('crypto_prices.csv', index=False)
+    print(df)
 else:
     print("Failed to fetch cryptocurrency prices:", data)

@@ -28,3 +28,147 @@
 2024-10-09 17:32:15,646 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
 2024-10-09 17:32:15,646 - INFO - Attempting to fetch crypto prices
 2024-10-09 17:32:15,646 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:02:06,997 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:02:06,998 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:02:07,262 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:03:30,156 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:03:30,156 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:03:30,240 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:03:51,191 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:03:51,192 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:03:51,248 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:04:09,402 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:04:09,402 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:04:09,459 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:06:24,641 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:06:24,641 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:06:24,723 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:07:03,826 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:07:03,826 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:07:03,888 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:09:25,472 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:09:25,472 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:09:25,694 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:09:47,863 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:09:47,863 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:09:47,919 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:13:00,756 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:13:00,756 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:13:00,827 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:15:47,110 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:15:47,110 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:15:47,328 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:16:05,171 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:16:05,171 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:16:05,227 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:16:53,504 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:16:53,504 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:16:53,560 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:16:53,810 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:16:53,810 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:16:53,890 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:18:56,176 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,176 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,231 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:18:56,244 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,244 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,274 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:18:56,276 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,276 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,348 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:18:56,352 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,352 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,414 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:18:56,416 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,416 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,471 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:18:56,472 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,472 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,522 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:18:56,524 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:18:56,525 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:18:56,600 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:25,932 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:25,932 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:25,974 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:20:26,001 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,001 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,065 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:20:26,066 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,066 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,125 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:20:26,126 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,126 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,203 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:20:26,203 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,203 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,249 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:20:26,250 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,250 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,308 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:26,326 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:26,326 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:26,356 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,758 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,758 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:40,791 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,795 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,795 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:40,829 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,831 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,831 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:40,887 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,888 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,888 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:40,925 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,927 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,927 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:40,966 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:40,966 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:40,966 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:41,019 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:20:41,021 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:20:41,021 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:20:41,071 - ERROR - HTTP error occurred: 429 Client Error: Too Many Requests for url: https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cripple&vs_currencies=usd%2Cpln
+2024-10-10 16:23:41,963 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:23:41,963 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:23:42,179 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:26:28,300 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:26:28,300 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:26:28,358 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:27:34,725 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:27:34,726 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:27:34,780 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:28:33,792 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:28:33,792 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:28:33,843 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:28:33,859 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:28:33,859 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:28:33,859 - ERROR - Connection error occurred: Connection Error
+2024-10-10 16:28:33,859 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:28:33,859 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:28:33,859 - ERROR - HTTP error occurred: HTTP Error
+2024-10-10 16:28:33,860 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:28:33,860 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:28:33,860 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:30:52,017 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:30:52,017 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:30:52,253 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:33:04,605 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:33:04,605 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:33:04,675 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:33:53,514 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:33:53,514 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:33:53,560 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:34:24,137 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:34:24,137 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:34:24,195 - INFO - Successfully fetched cryptocurrency prices
+2024-10-10 16:34:24,209 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:34:24,209 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:34:24,209 - ERROR - Connection error occurred: Connection Error
+2024-10-10 16:34:24,209 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:34:24,209 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:34:24,209 - ERROR - HTTP error occurred: HTTP Error
+2024-10-10 16:34:24,210 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-10 16:34:24,210 - INFO - Attempting to fetch crypto prices
+2024-10-10 16:34:24,210 - INFO - Successfully fetched cryptocurrency prices

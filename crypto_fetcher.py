@@ -121,6 +121,36 @@ def week_change_chart(df):
     plt.savefig(f'charts/barchart_{pd.Timestamp.now().strftime("%Y%m%d")}.png', bbox_inches='tight')
     plt.show()
 
+def plot_price_comparison(df):
+    """
+    Creates a line chart showing the prices of the cryptocurrencies in USD and PLN.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame with the cryptocurrency prices.
+    """
+    df[['usd', 'pln']].plot(kind='line', figsize=(10, 6))
+    plt.title('Cryptocurrency Prices')
+    plt.ylabel('Price')
+    plt.xlabel('Cryptocurrency')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    os.makedirs('charts', exist_ok=True)  # Ensure the directory exists
+    plt.savefig(f'charts/linechart_{pd.Timestamp.now().strftime("%Y%m%d")}.png', bbox_inches='tight')
+    plt.show()
+
+def append_to_csv(df, filename='crypto_prices.csv'):
+    """
+    Appends the DataFrame to an existing CSV file or creates a new one if it doesn't exist.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame with the cryptocurrency prices.
+        filename (str): The name of the CSV file to append to. Defaults to 'crypto_prices.csv'.
+    """
+    if os.path.exists(filename):
+        df_old = pd.read_csv(filename)
+        df = pd.concat([df_old, df], ignore_index=True)
+    df.to_csv(filename, index=False)
+
 # Fetch, process, and save cryptocurrency prices
 data = get_crypto_prices()
 if data and "error" not in data:
@@ -129,6 +159,8 @@ if data and "error" not in data:
     df = format_data(df)
     df.to_csv('crypto_prices.csv', index=False)
     print(df)
+    append_to_csv(df)
     week_change_chart(df)
+    plot_price_comparison(df)
 else:
     print("Failed to fetch cryptocurrency prices:", data)

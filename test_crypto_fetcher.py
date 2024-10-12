@@ -1,8 +1,9 @@
+
 import unittest
 from unittest.mock import patch, MagicMock
 import requests
 import pandas as pd
-from crypto_fetcher import get_crypto_prices, process_data, add_percent_change, format_data, week_change_chart
+from crypto_fetcher import get_crypto_prices, process_data, add_percent_change, format_data, week_change_chart, plot_price_comparison, append_to_csv
 
 class TestCryptoFetcher(unittest.TestCase):
 
@@ -90,6 +91,49 @@ class TestCryptoFetcher(unittest.TestCase):
         df = add_percent_change(df)
         week_change_chart(df)
         mock_show.assert_called_once()
+
+    @patch('crypto_fetcher.plt.show')
+    def test_plot_price_comparison(self, mock_show):
+        data = {
+            'bitcoin': {'usd': 50000, 'pln': 200000},
+            'ethereum': {'usd': 4000, 'pln': 16000},
+            'ripple': {'usd': 1, 'pln': 4}
+        }
+        df = process_data(data)
+        plot_price_comparison(df)
+        mock_show.assert_called_once()
+
+    @patch('crypto_fetcher.os.path.exists')
+    @patch('crypto_fetcher.pd.read_csv')
+    def test_append_to_existing_csv(self, mock_read_csv, mock_path_exists):
+        mock_path_exists.return_value = True
+        mock_read_csv.return_value = pd.DataFrame({
+            'usd': [50000, 4000, 1],
+            'pln': [200000, 16000, 4],
+            'usd_change': [0, -96.09, -99.98],
+            'pln_change': [0, -96.09, -99.98]
+        }, index=['bitcoin', 'ethereum', 'ripple'])
+        data = {
+            'bitcoin': {'usd': 60000, 'pln': 240000},
+            'ethereum': {'usd': 5000, 'pln': 20000},
+            'ripple': {'usd': 2, 'pln': 8}
+        }
+        df = process_data(data)
+        append_to_csv(df)
+        self.assertEqual(mock_read_csv.call_count, 1)
+
+    @patch('crypto_fetcher.os.path.exists')
+    @patch('crypto_fetcher.pd.read_csv')
+    def test_append_to_new_csv(self, mock_read_csv, mock_path_exists):
+        mock_path_exists.return_value = False
+        data = {
+            'bitcoin': {'usd': 60000, 'pln': 240000},
+            'ethereum': {'usd': 5000, 'pln': 20000},
+            'ripple': {'usd': 2, 'pln': 8}
+        }
+        df = process_data(data)
+        append_to_csv(df)
+        self.assertEqual(mock_read_csv.call_count, 0)
 
 if __name__ == '__main__':
     unittest.main()

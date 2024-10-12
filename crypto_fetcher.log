@@ -172,3 +172,90 @@
 2024-10-10 16:34:24,210 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
 2024-10-10 16:34:24,210 - INFO - Attempting to fetch crypto prices
 2024-10-10 16:34:24,210 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 16:58:17,967 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 16:58:17,967 - INFO - Attempting to fetch crypto prices
+2024-10-12 16:58:18,167 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:08:14,676 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:08:14,676 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:08:14,872 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:11:30,258 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:11:30,258 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:11:30,314 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:14:20,566 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:14:20,567 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:14:20,765 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:18:57,075 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:18:57,076 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:18:57,118 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:20:52,412 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:20:52,412 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:20:52,619 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:22:34,140 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:22:34,140 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:22:34,178 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:22:50,531 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:22:50,531 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:22:50,574 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:23:38,530 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:23:38,530 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:23:38,584 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:24:35,979 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:24:35,979 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:24:36,023 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:25:14,264 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:25:14,264 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:25:14,309 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:26:33,230 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:26:33,230 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:26:33,495 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:26:44,709 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:26:44,709 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:26:44,775 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:27:43,110 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:27:43,110 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:27:43,207 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:28:39,237 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:28:39,237 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:28:39,305 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:30:11,040 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:30:11,040 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:30:11,111 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:31:27,375 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:31:27,375 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:31:27,422 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:32:46,995 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:46,995 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,235 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:32:47,468 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:47,468 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,468 - ERROR - Connection error occurred: Connection Error
+2024-10-12 17:32:47,468 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:47,469 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,469 - ERROR - HTTP error occurred: HTTP Error
+2024-10-12 17:32:47,469 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:47,469 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,469 - ERROR - An error occurred: Request Exception
+2024-10-12 17:32:47,470 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:47,470 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,470 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:32:47,472 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:32:47,472 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:32:47,472 - ERROR - Timeout error occurred: Timeout Error
+2024-10-12 17:33:45,678 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,678 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,729 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:33:45,946 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,946 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,946 - ERROR - Connection error occurred: Connection Error
+2024-10-12 17:33:45,946 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,946 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,946 - ERROR - HTTP error occurred: HTTP Error
+2024-10-12 17:33:45,947 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,947 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,947 - ERROR - An error occurred: Request Exception
+2024-10-12 17:33:45,948 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,948 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,948 - INFO - Successfully fetched cryptocurrency prices
+2024-10-12 17:33:45,948 - INFO - Starting call to 'crypto_fetcher.get_crypto_prices', this is the 1st time calling it.
+2024-10-12 17:33:45,948 - INFO - Attempting to fetch crypto prices
+2024-10-12 17:33:45,948 - ERROR - Timeout error occurred: Timeout Error

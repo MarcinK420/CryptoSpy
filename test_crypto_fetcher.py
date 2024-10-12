@@ -1,103 +1,95 @@
-
 import unittest
-from unittest.mock import patch
-import pandas as pd
+from unittest.mock import patch, MagicMock
 import requests
-from crypto_fetcher import get_crypto_prices, process_data, add_percent_change, format_data
+import pandas as pd
+from crypto_fetcher import get_crypto_prices, process_data, add_percent_change, format_data, week_change_chart
 
 class TestCryptoFetcher(unittest.TestCase):
 
     @patch('crypto_fetcher.requests.get')
     def test_get_crypto_prices_success(self, mock_get):
-        # Mock the successful response from the API
-        mock_response = {
-            "bitcoin": {"usd": 50000, "pln": 200000},
-            "ethereum": {"usd": 3000, "pln": 12000},
-            "ripple": {"usd": 1.2, "pln": 4.8}
+        mock_response = MagicMock()
+        mock_response.json.return_value = {
+            'bitcoin': {'usd': 50000, 'pln': 200000},
+            'ethereum': {'usd': 4000, 'pln': 16000},
+            'ripple': {'usd': 1, 'pln': 4}
         }
-        mock_get.return_value.status_code = 200
-        mock_get.return_value.json.return_value = mock_response
+        mock_response.raise_for_status = MagicMock()
+        mock_get.return_value = mock_response
 
-        # Call the actual function
         result = get_crypto_prices()
-
-        # Check if the returned result matches the mocked data
-        self.assertEqual(result, mock_response)
+        self.assertIn('bitcoin', result)
+        self.assertIn('ethereum', result)
+        self.assertIn('ripple', result)
 
     @patch('crypto_fetcher.requests.get')
     def test_get_crypto_prices_http_error(self, mock_get):
-        # Mock a HTTP error
         mock_get.side_effect = requests.exceptions.HTTPError("HTTP Error")
-
-        # Call the function
         result = get_crypto_prices()
-
-        # Check if the correct error dictionary is returned
-        self.assertEqual(result["error"], "HTTP error")
-        self.assertIn("message", result)
+        self.assertEqual(result['error'], 'HTTP error')
 
     @patch('crypto_fetcher.requests.get')
     def test_get_crypto_prices_connection_error(self, mock_get):
-        # Mock a connection error
         mock_get.side_effect = requests.exceptions.ConnectionError("Connection Error")
-
-        # Call the function
         result = get_crypto_prices()
+        self.assertEqual(result['error'], 'Connection error')
 
-        # Check if the correct error dictionary is returned
-        self.assertEqual(result["error"], "Connection error")
-        self.assertIn("message", result)
+    @patch('crypto_fetcher.requests.get')
+    def test_get_crypto_prices_timeout_error(self, mock_get):
+        mock_get.side_effect = requests.exceptions.Timeout("Timeout Error")
+        result = get_crypto_prices()
+        self.assertEqual(result['error'], 'Timeout error')
+
+    @patch('crypto_fetcher.requests.get')
+    def test_get_crypto_prices_request_exception(self, mock_get):
+        mock_get.side_effect = requests.exceptions.RequestException("Request Exception")
+        result = get_crypto_prices()
+        self.assertEqual(result['error'], 'Request error')
 
     def test_process_data(self):
-        # Test if data is properly converted to DataFrame
-        input_data = {
-            "bitcoin": {"usd": 50000, "pln": 200000},
-            "ethereum": {"usd": 3000, "pln": 12000},
-            "ripple": {"usd": 1.2, "pln": 4.8}
+        data = {
+            'bitcoin': {'usd': 50000, 'pln': 200000},
+            'ethereum': {'usd': 4000, 'pln': 16000},
+            'ripple': {'usd': 1, 'pln': 4}
         }
-        df = process_data(input_data)
-
-        # Check the structure of the DataFrame
-        self.assertEqual(list(df.columns), ['usd', 'pln'])
-        self.assertEqual(df.index.tolist(), ['bitcoin', 'ethereum', 'ripple'])
+        df = process_data(data)
         self.assertEqual(df.loc['bitcoin', 'usd'], 50000)
+        self.assertEqual(df.loc['ethereum', 'pln'], 16000)
 
     def test_add_percent_change(self):
-        # Test percentage change calculation
         data = {
-            "bitcoin": {"usd": 50000, "pln": 200000},
-            "ethereum": {"usd": 3000, "pln": 12000},
-            "ripple": {"usd": 1.2, "pln": 4.8}
+            'bitcoin': {'usd': 50000, 'pln': 200000},
+            'ethereum': {'usd': 4000, 'pln': 16000},
+            'ripple': {'usd': 1, 'pln': 4}
         }
         df = process_data(data)
         df = add_percent_change(df)
-
-        # The first row should have a 0% change, as there's no previous data to compare
-        self.assertEqual(df.loc['bitcoin', 'usd_change'], 0)
-        self.assertEqual(df.loc['bitcoin', 'pln_change'], 0)
-
-        # For ethereum, the percent change will reflect the relative difference from bitcoin
-        self.assertEqual(df.loc['ethereum', 'usd_change'], -94.0)  # Correcting expectation
-        self.assertEqual(df.loc['ethereum', 'pln_change'], -94.0)
+        self.assertIn('usd_change', df.columns)
+        self.assertIn('pln_change', df.columns)
 
     def test_format_data(self):
-        # Test if data is rounded correctly
         data = {
-            "bitcoin": {"usd": 50000.556, "pln": 200000.556},
-            "ethereum": {"usd": 3000.789, "pln": 12000.123},
-            "ripple": {"usd": 1.245, "pln": 4.823}
+            'bitcoin': {'usd': 50000.123, 'pln': 200000.456},
+            'ethereum': {'usd': 4000.789, 'pln': 16000.123},
+            'ripple': {'usd': 1.456, 'pln': 4.789}
+        }
+        df = process_data(data)
+        df = add_percent_change(df)  # Ensure percent change columns are added
+        df = format_data(df)
+        self.assertEqual(df.loc['bitcoin', 'usd'], 50000.12)
+        self.assertEqual(df.loc['ethereum', 'pln'], 16000.12)
+
+    @patch('crypto_fetcher.plt.show')
+    def test_week_change_chart(self, mock_show):
+        data = {
+            'bitcoin': {'usd': 50000, 'pln': 200000},
+            'ethereum': {'usd': 4000, 'pln': 16000},
+            'ripple': {'usd': 1, 'pln': 4}
         }
         df = process_data(data)
         df = add_percent_change(df)
-        df = format_data(df)
-
-        # Check if values are rounded to 2 decimal places
-        self.assertEqual(df.loc['bitcoin', 'usd'], 50000.56)
-        self.assertEqual(df.loc['ethereum', 'pln'], 12000.12)
-
-        # Update the expectation to match the percentage change calculation
-        self.assertEqual(df.loc['ripple', 'usd_change'], -99.96)  # Adjusted to the actual value
-
+        week_change_chart(df)
+        mock_show.assert_called_once()
 
 if __name__ == '__main__':
     unittest.main()

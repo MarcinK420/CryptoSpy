@@ -3,24 +3,17 @@ import json
 import logging
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type, before_log, after_log
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
 
 # Configure logging
 logger = logging.getLogger('crypto_fetcher')
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('crypto_fetcher.log')
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-
-"""
-This module provides functionality to fetch cryptocurrency prices from the CoinGecko API.
-
-Functions:
-    get_crypto_prices: Fetches the current prices of Bitcoin, Ethereum, and Ripple in USD and PLN.
-    process_data: Converts the fetched data into a pandas DataFrame.
-    add_percent_change: Adds percentage change columns to the DataFrame.
-    format_data: Rounds the data in the DataFrame to 2 decimal places.
-"""
+if not logger.hasHandlers():
+    logger.setLevel(logging.INFO)
+    handler = logging.FileHandler('crypto_fetcher.log')
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
 
 @retry(
     stop=stop_after_attempt(3),
@@ -110,6 +103,24 @@ def format_data(df):
     df['pln_change'] = df['pln_change'].round(2)
     return df
 
+def week_change_chart(df):
+    """
+    Creates a bar chart showing the weekly percentage change of the cryptocurrencies in USD and PLN.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame with the cryptocurrency prices and percentage changes.
+    """
+    df = df[['usd_change']]
+    df = df.rename(index={'bitcoin': 'Bitcoin', 'ethereum': 'Ethereum', 'ripple': 'Ripple'})
+    df.plot(kind='bar', figsize=(10, 6))
+    plt.title('Weekly Price Change (%)')
+    plt.ylabel('Change (%)')
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+    os.makedirs('charts', exist_ok=True)  # Ensure the directory exists
+    plt.savefig(f'charts/barchart_{pd.Timestamp.now().strftime("%Y%m%d")}.png', bbox_inches='tight')
+    plt.show()
+
 # Fetch, process, and save cryptocurrency prices
 data = get_crypto_prices()
 if data and "error" not in data:
@@ -118,5 +129,6 @@ if data and "error" not in data:
     df = format_data(df)
     df.to_csv('crypto_prices.csv', index=False)
     print(df)
+    week_change_chart(df)
 else:
     print("Failed to fetch cryptocurrency prices:", data)

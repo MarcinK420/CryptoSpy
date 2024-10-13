@@ -151,16 +151,67 @@ def append_to_csv(df, filename='crypto_prices.csv'):
         df = pd.concat([df_old, df], ignore_index=True)
     df.to_csv(filename, index=False)
 
+
+def fetch_historical_data(crypto_id, days=7):
+    """
+    Fetches historical price data for a cryptocurrency from the CoinGecko API.
+
+    Args:
+        crypto_id (str): The ID of the cryptocurrency to fetch data for.
+        days (int): The number of days of historical data to fetch. Defaults to 7.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the historical price data.
+    """
+    url = f'https://api.coingecko.com/api/v3/coins/{crypto_id}/market_chart?vs_currency=usd&days={days}'
+    response = requests.get(url)
+    data = response.json()
+
+    if 'prices' not in data:
+        raise KeyError(f"'prices' key not found in the response for {crypto_id}")
+
+    prices = data['prices']
+    df = pd.DataFrame(prices, columns=['timestamp', 'price'])
+    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+    df.set_index('timestamp', inplace=True)
+    return df
+
+def plot_price_history(crypto_ids, days=7):
+    """
+    Plots the historical price data for a cryptocurrency.
+
+    Args:
+        crypto_id (str): The ID of the cryptocurrency to plot data for.
+        days (int): The number of days of historical data to fetch and plot. Defaults to 7.
+    """
+    plt.figure(figsize=(12, 8))
+
+    for crypto_id in crypto_ids:
+        df = fetch_historical_data(crypto_id, days)
+        df['price_change'] = df['price'].pct_change()*100
+        df['price_change'].plot(label=crypto_id.capitalize())
+
+    plt.title("Percentage change in prices (Last 7 days)")
+    plt.xlabel("Date")
+    plt.ylabel("Price Change (%)")
+    plt.legend()
+    plt.grid(True)
+    os.makedirs('charts', exist_ok=True)  # Ensure the directory exists
+    plt.savefig(f'charts/price_history_{pd.Timestamp.now().strftime("%Y%m%d")}.png', bbox_inches='tight')
+    plt.show()
+
 # Fetch, process, and save cryptocurrency prices
 data = get_crypto_prices()
 if data and "error" not in data:
     df = process_data(data)
     df = add_percent_change(df)
     df = format_data(df)
+    crypto_ids = ['bitcoin', 'ethereum', 'ripple']
     df.to_csv('crypto_prices.csv', index=False)
-    print(df)
+    print("Cryptocurrency prices fetched successfully")
     append_to_csv(df)
     week_change_chart(df)
     plot_price_comparison(df)
+    plot_price_history(crypto_ids)
 else:
     print("Failed to fetch cryptocurrency prices:", data)

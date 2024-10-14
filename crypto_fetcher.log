@@ -508,3 +508,6 @@
 2024-10-14 10:26:51,795 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
 2024-10-14 10:26:51,795 - INFO - Attempting to fetch crypto prices
 2024-10-14 10:26:52,143 - INFO - Successfully fetched cryptocurrency prices
+2024-10-14 10:32:21,629 - INFO - Starting call to '__main__.get_crypto_prices', this is the 1st time calling it.
+2024-10-14 10:32:21,630 - INFO - Attempting to fetch crypto prices
+2024-10-14 10:32:22,003 - INFO - Successfully fetched cryptocurrency prices

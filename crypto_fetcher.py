@@ -195,6 +195,10 @@ def plot_price_history(crypto_ids, days=7):
 
     for crypto_id in crypto_ids:
         df = fetch_historical_data(crypto_id, days)
+        if df is None:
+            logger.error(f"Failed to fetch historical data for {crypto_id}")
+            continue
+
         df['price_change'] = df['price'].pct_change()*100
         df['price_change'].plot(label=crypto_id.capitalize())
 

@@ -168,17 +168,20 @@ def fetch_historical_data(crypto_id, days=7):
         pandas.DataFrame: A DataFrame containing the historical price data.
     """
     url = f'https://api.coingecko.com/api/v3/coins/{crypto_id}/market_chart?vs_currency=usd&days={days}'
-    response = requests.get(url)
-    data = response.json()
+    try:
+        response = requests.get(url)
+        data = response.json()
+        if 'prices' not in data:
+            raise KeyError(f"'prices' key not found in the response for {crypto_id}")
+        prices = data['prices']
+        df = pd.DataFrame(prices, columns=['timestamp', 'price'])
+        df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
+        df.set_index('timestamp', inplace=True)
+        return df
 
-    if 'prices' not in data:
-        raise KeyError(f"'prices' key not found in the response for {crypto_id}")
-
-    prices = data['prices']
-    df = pd.DataFrame(prices, columns=['timestamp', 'price'])
-    df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
-    df.set_index('timestamp', inplace=True)
-    return df
+    except requests.exceptions.RequestException as e:
+        logger.error(f"An error occurred while fetching historical data for {crypto_id}: {e}")
+        return None
 
 def plot_price_history(crypto_ids, days=7):
     """

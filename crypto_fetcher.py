@@ -141,16 +141,20 @@ def plot_price_comparison(df):
 def append_to_csv(df, filename='crypto_prices.csv'):
     """
     Appends the DataFrame to an existing CSV file or creates a new one if it doesn't exist.
+    Adds a timestamp header with the current date and time.
 
     Args:
         df (pandas.DataFrame): A DataFrame with the cryptocurrency prices.
         filename (str): The name of the CSV file to append to. Defaults to 'crypto_prices.csv'.
     """
-    if os.path.exists(filename):
-        df_old = pd.read_csv(filename)
-        df = pd.concat([df_old, df], ignore_index=True)
-    df.to_csv(filename, index=False)
+    # Add a timestamp header
+    timestamp = pd.Timestamp.now().strftime('%H:%M %d.%m.%Y')
+    header = f'Timestamp: {timestamp}'
 
+    with open(filename, 'a', newline='') as f:
+        f.write(header + '\n')
+        df.to_csv(f, index=False)
+        f.write('\n')  # Add a newline for separation between entries
 
 def fetch_historical_data(crypto_id, days=7):
     """
@@ -207,11 +211,10 @@ if data and "error" not in data:
     df = add_percent_change(df)
     df = format_data(df)
     crypto_ids = ['bitcoin', 'ethereum', 'ripple']
-    df.to_csv('crypto_prices.csv', index=False)
-    print("Cryptocurrency prices fetched successfully")
-    append_to_csv(df)
+    append_to_csv(df)  # Append data to CSV with timestamp
     week_change_chart(df)
     plot_price_comparison(df)
     plot_price_history(crypto_ids)
+    print("Cryptocurrency prices fetched successfully")
 else:
     print("Failed to fetch cryptocurrency prices:", data)
